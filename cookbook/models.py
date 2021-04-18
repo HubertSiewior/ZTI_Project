@@ -14,9 +14,6 @@ class Ingredient(models.Model):
         return self.ingredient_name
 
 
-
-
-
 class RecipeStep(models.Model):
     description = models.CharField(max_length=200)
     time = models.IntegerField(default=0)
