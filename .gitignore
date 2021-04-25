@@ -5,3 +5,4 @@
 /workspace.xml
 **/*.pyc
 .DS_Store
+node_modules
