@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import RetrieveAPIView, CreateAPIView, DestroyAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from user.serializers import UserRegistrationSerializer, UserLoginSerializer
@@ -11,7 +10,7 @@ class UserRegistrationView(CreateAPIView):
     serializer_class = UserRegistrationSerializer
     permission_classes = (AllowAny,)
 
-    def post(self, request):
+    def post(self, request, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -41,3 +40,10 @@ class UserLoginView(RetrieveAPIView):
         status_code = status.HTTP_200_OK
 
         return Response(response, status=status_code)
+
+
+class UserDeleteView(DestroyAPIView):
+    permission_classes = (AllowAny,)
+
+    def destroy(self, request, *args, **kwargs):
+        self.perform_destroy(self.get_object())

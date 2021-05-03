@@ -5,7 +5,7 @@ import {StartPage} from "./components/StartPage";
 import {About} from "./components/About";
 import {Home} from "./components/Home";
 
-// import {RecipesList} from './components/RecipesList'
+import {RecipesList} from './components/RecipesList'
 // import {Form} from './components/Form'
 // import {Recipe} from './components/Recipe'
 // import {SignIn} from "./components/SignIn";
@@ -32,9 +32,9 @@ export const Routing = () => {
                 {/*    <SignUp/>*/}
                 {/*</Route>*/}
 
-                {/*<Route exact path="/recipe">*/}
-                {/*    <RecipesList/>*/}
-                {/*</Route>*/}
+                <Route exact path="/recipe">
+                    <RecipesList/>
+                </Route>
 
                 {/*<Route path='/recipe/new'>*/}
                 {/*    <Form/>*/}
