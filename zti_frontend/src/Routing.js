@@ -6,10 +6,15 @@ import {About} from "./components/About";
 import {Home} from "./components/Home";
 
 import {RecipesList} from './components/RecipesList'
+import {AddRecipe} from "./components/AddRecipe";
+import {RecipeStepList} from "./components/RecipeStepList";
+import {AddRecipeStep} from "./components/AddRecipeStep";
+import {AddIngredient} from "./components/AddIngredient";
+import {IngredientList} from "./components/IngredientList";
 // import {Form} from './components/Form'
 // import {Recipe} from './components/Recipe'
-// import {SignIn} from "./components/SignIn";
-// import {SignUp} from "./components/SignUp";
+import {SignIn} from "./components/SignIn";
+import {SignUp} from "./components/SignUp";
 // import {EditRecipe} from "./components/EditRecipe";
 
 export const Routing = () => {
@@ -23,22 +28,34 @@ export const Routing = () => {
                 <Route exact path='/home'>
                     <Home/>
                 </Route>
+                <Route exact path='/recipestep/new'>
+                    <AddRecipeStep/>
+                </Route>
+                <Route exact path='/recipestep'>
+                    <RecipeStepList/>
+                </Route>
 
-                {/*<Route exact path="/signIn">*/}
-                {/*    <SignIn/>*/}
-                {/*</Route>*/}
+                <Route exact path="/signIn">
+                    <SignIn/>
+                </Route>
 
-                {/*<Route exact path="/signUp">*/}
-                {/*    <SignUp/>*/}
-                {/*</Route>*/}
+                <Route exact path="/signUp">
+                    <SignUp/>
+                </Route>
 
                 <Route exact path="/recipe">
                     <RecipesList/>
                 </Route>
 
-                {/*<Route path='/recipe/new'>*/}
-                {/*    <Form/>*/}
-                {/*</Route>*/}
+                <Route exact path='/recipe/new'>
+                    <AddRecipe/>
+                </Route>
+                <Route exact path='/ingredient'>
+                    <IngredientList/>
+                </Route>
+                <Route exact path='/ingredient/new'>
+                    <AddIngredient/>
+                </Route>
 
                 {/*<Route path='/recipe/:id'>*/}
                 {/*    <Recipe/>*/}
