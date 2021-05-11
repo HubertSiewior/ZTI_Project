@@ -11,15 +11,21 @@ def index(request):
 
 # todo wszystko https://docs.djangoproject.com/pl/3.1/intro/tutorial03/
 def getAllRecipes(request):
-    return HttpResponse(Recipe.objects.all().values())
+    recipe = Recipe.objects.all().values()
+    recipe_list = list(recipe)
+    return JsonResponse(recipe_list, safe=False)
 
 
 def getAllRecipeSteps(request):
-    return HttpResponse(RecipeStep.objects.all().values())
+    recipeStep = RecipeStep.objects.all().values()
+    recipeStep_list = list(recipeStep)
+    return JsonResponse(recipeStep_list, safe=False)
 
 
 def getAllIngredients(request):
-    return HttpResponse(Ingredient.objects.all().values())
+    ingredient = Ingredient.objects.all().values()
+    ingredient_list = list(ingredient)
+    return JsonResponse(ingredient_list, safe=False)
 
 
 def addIngredient(request):

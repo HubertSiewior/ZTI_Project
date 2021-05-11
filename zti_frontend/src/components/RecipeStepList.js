@@ -11,24 +11,24 @@ const checkTime=(time)=> {
 };
 
 const RecipeStepItem = (props) => {
-    const {description, time} = props;
-    return <ListGroup.Item variant="primary">{description}.<br/> {checkTime(time)} </ListGroup.Item>
+    const {id,description, time} = props;
+    return <ListGroup.Item variant="primary" action href={`/recipestep/${id}`}>{description}</ListGroup.Item>
 };
 
 export const RecipeStepList = () => {
     const dispatch = useDispatch();
     const [recipeSteps, setRecipeSteps] = useState([]);
     const {id} = useParams();
-    // useEffect(() => {
-    //     API.get(`/recipe/${id}/recipeSteps`)
-    //         .then((response) => {
-    //             console.log(response);
-    //             setRecipeSteps(response.data)
-    //         })
-    //         .catch(error => {
-    //             dispatch(showErrorPopup(error.response.data))
-    //         })
-    // }, [id, dispatch]);
+    useEffect(() => {
+        API.get(`/cookbook/recipestep`)
+            .then((response) => {
+                console.log(response);
+                setRecipeSteps(response.data)
+            })
+            .catch(error => {
+                dispatch(showErrorPopup(error.response.data))
+            })
+    }, [id, dispatch]);
     return (
           <Form>
             <Form.Group>

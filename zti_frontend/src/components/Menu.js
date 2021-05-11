@@ -16,8 +16,6 @@ export const Menu = () => {
                             <Nav.Link href="/recipestep">Recipe steps list</Nav.Link>
                             <Nav.Link href="/ingredient">Ingredient list</Nav.Link>
                             <Nav.Link href="/recipe/new">Add new recipe</Nav.Link>
-                            <Nav.Link href="/recipestep/new">Add new recipe step</Nav.Link>
-                            <Nav.Link href="/ingredient/new">Add new ingredient</Nav.Link>
                             <Nav.Link href="/about">About</Nav.Link>
                             <Nav.Link href="/"
                                       onClick={() => localStorage.removeItem("user")}

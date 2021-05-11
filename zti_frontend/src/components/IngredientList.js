@@ -8,23 +8,23 @@ import {useDispatch} from "react-redux";
 
 const IngredientItem = (props) => {
     const {ingredient_name, price, kcal, quantity, if_vegan} = props;
-    return <ListGroup.Item variant="primary">{ingredient_name}.<br/> {price}.<br/>{kcal}.<br/>{quantity}.<br/>{if_vegan} </ListGroup.Item>
+    return <ListGroup.Item variant="primary">{ingredient_name}</ListGroup.Item>
 };
 
 export const IngredientList = () => {
     const dispatch = useDispatch();
     const [ingredients, setIngredients] = useState([]);
     const {id} = useParams();
-    // useEffect(() => {
-    //     API.get(`/recipe/${id}/recipeSteps`)
-    //         .then((response) => {
-    //             console.log(response);
-    //             setRecipeSteps(response.data)
-    //         })
-    //         .catch(error => {
-    //             dispatch(showErrorPopup(error.response.data))
-    //         })
-    // }, [id, dispatch]);
+    useEffect(() => {
+        API.get(`/cookbook/ingredient`)
+            .then((response) => {
+                console.log(response);
+                setIngredients(response.data)
+            })
+            .catch(error => {
+                dispatch(showErrorPopup(error.response.data))
+            })
+    }, [id, dispatch]);
     return (
           <Form>
             <Form.Group>

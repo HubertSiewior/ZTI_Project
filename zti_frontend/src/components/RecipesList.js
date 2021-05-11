@@ -20,14 +20,14 @@ export const RecipesList = () => {
     const [recipes, setRecipes] = useState([]);
     const [filterName, setFilterName] = useState('');
     useEffect(() => {
-        API.get(`/recipe`)
+        API.get(`/cookbook/recipe`)
             .then((response) => {
                 console.log(response);
                 setRecipes(response.data)
             })
-        // .catch(error => {
-        //     dispatch(showErrorPopup(error.response.data))
-        // })
+        .catch(error => {
+            dispatch(showErrorPopup(error.response.data))
+        })
     }, [dispatch]);
     // const handleFilter = () => {
     //     API.get(`/recipe`, {
